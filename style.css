@@ -6,52 +6,65 @@
 }
 
 
-
-nav {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    background-color: rgb(18, 29, 44);
-    height: 80px;
+body {
+    font-family: "Inter";
+    line-height: 1.6;
+    /* aumentare interlinea */
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
 
+.container-navbar {
+    justify-content: space-between;
+    /*perché cavolo non si dispongono con lo spazio?*/
 }
 
 .wrapper {
+    display: flex;
     width: 100%;
-    padding: 80px;
-}
-
-.wrapper-blue {
-    width: 100%;
-    padding: 80px;
-    background-color: rgb(18, 29, 44);
-    color: rgb(253, 253, 253);
+    padding: 60px;
+    margin-left: 20px;
+    /* per fare il wrapper serve il margin ai lati? */
+    margin-right: 20px;
+    /* perché si è creato un margine bianco sul lato sinistro? */
+    color: rgb(20, 29, 43);
     justify-content: space-between;
 
 }
 
-.wrapper-grey {
+.wrapper-blue {
+    display: flex;
+
     width: 100%;
-    padding: 80px;
+    padding: 60px;
+    margin-left: 20px;
+    /* per fare il wrapper serve il margin ai lati? perché non lo prende alla navbar? */
+    margin-right: 20px;
+    /* perché si è creato un margiine bianco sul lato sinistro? */
+    background-color: rgb(18, 29, 44);
+    color: rgb(253, 253, 253);
+    justify-content: space-between;
+}
+
+.wrapper-grey {
+    display: flex;
+
+    width: 100%;
+    padding: 60px;
+    margin-left: 20px;
+    /*per fare il wrapper serve il margin ai lati? perché non lo prende nel nav?*/
+    margin-right: 20px;
     background-color: rgb(242, 245, 249);
     color: rgb(31, 41, 59);
 }
 
-body {
-    font-family: "Inter";
-    line-height: 1.6; /* aumentare interlinea */
-}
-
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: "Playfair Display", serif;
 }
 
@@ -68,7 +81,7 @@ a {
     /*p per apportare modifiche di stile al link*/
     text-decoration: none;
     /*per togliere la sottolineatura dei link*/
-    color:  rgb(154, 165, 193);
+    color: rgb(154, 165, 193);
 }
 
 a:hover {
@@ -76,13 +89,13 @@ a:hover {
 }
 
 button {
-background-color: rgb(55, 118, 226);
-width: 180px;
-height: 50px;
-border-radius: 2px;
-color: aliceblue;
-font-size: 16px;
-border: none;
+    background-color: rgb(55, 118, 226);
+    width: 180px;
+    height: 50px;
+    border-radius: 2px;
+    color: aliceblue;
+    font-size: 16px;
+    border: none;
 }
 
 .button-explore {
@@ -91,36 +104,42 @@ border: none;
 }
 
 /*qui solo .nav__logo o tutte le classi contenenti? */
-.wrapper .container .nav__logo {
-    /* top-bottom left-right */
-    flex-direction: row;
-    justify-content: start;
-}
 
 .nav__logo-svg {
-    width: 30px;
+    width: 35px;
     height: auto;
     fill: rgb(55, 118, 226);
 }
 
+.container-navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+
 .nav__menu {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    align-items: center;
 }
+
 
 .nav__actions {
     display: flex;
     flex-direction: row;
-    align-items: end;
+    justify-content: end;
+    /* ma perché non ci vanno?*/
 }
 
 .nav__actions .nav__actions-item {
-    padding: 16px;
+    padding: 16px; /* meglio il paddng o lo spazio tra gli elementi "gap"?*/
+
 }
+
 
 .nav__menu .nav__menu-item {
     padding: 16px;
+    white-space: nowrap; /* per non fare andare a capo il testo */
 }
 
 /*header*/
@@ -138,36 +157,65 @@ border: none;
 
 }
 
+.header__left-title {
+    min-width: 490px; /* per bloccare la larghezzza de box a minimo 500px, in % non riuscivo, 
+    e così non far spostare il testo prima dei 500px ma come si fa a far spostare gli elementi 
+    in verticale quando si restringe la finestra?*/
 
+}
 
-
-
-
-
-.footer__title {
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 10px;
+.container-cards {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
 }
+
+.main__card {
+    display: flex;
+    flex: calc(100% / 3);
+    flex-direction: column;
+    margin-bottom: 70px;
+    padding: 30px;
+    /*perché se aggiungo il padding alle main__card mi si spostano i bottoni dell'header?*/
+}
+
+.fa-solid.fa-circle-user { /* come si ingrandiscono le icone? direttamente dal sito? */
+    width: 50px;
+}
+
+
+
+
 
 .footer {
     display: flex;
+    width: 100%;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .footer__title {
     display: flex;
+    width: 100%;
     flex-direction: column;
+    justify-content: start; /* e niente il logo e il titolo restano separati */
 }
 
 
 .footer__menu {
-    padding: 10px;
+
     width: 100%;
     display: flex;
     flex-direction: row;
+    /* perché i 4 menu nel footer non occupano tutto lo spazio del footer__menu?*/
+    white-space: nowrap; /* per non fare andare a capo il testo */
+    gap: 60px; /* Spaziatura tra gli elementi dentro a qst elemento*/
+}
+
+li {
+    list-style: none;
+   
 }
 
 .footer__menu-htw {
@@ -188,6 +236,8 @@ border: none;
 .footer__menu-company {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    /*perché non si allarga fino alla fine della larghezza del genitore?*/
 }
 
 .footer__title-logo {
@@ -200,8 +250,9 @@ svg {
 
 }
 
-
-/* non viene applicato */
 #request {
     color: aliceblue;
 }
+
+
+
