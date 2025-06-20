@@ -15,51 +15,41 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-}
-
-.container-navbar {
-    justify-content: space-between;
-    /*perché cavolo non si dispongono con lo spazio?*/
+    width: 100%;
 }
 
 .wrapper {
     display: flex;
     width: 100%;
-    padding: 60px;
-    margin-left: 20px;
-    /* per fare il wrapper serve il margin ai lati? */
-    margin-right: 20px;
-    /* perché si è creato un margine bianco sul lato sinistro? */
+    /* Ho tolto margin-left e right:20px; perché creava un margine vuoto sul bordo sinistro. 
+    per fare il wrapper serve il margin ai lati? o forse il padding? */
+
     color: rgb(20, 29, 43);
-    justify-content: space-between;
+    justify-content: space-around;
+    /*perché cavolo non si dispongono  corret. nello spazio?*/
+}
+
+.white {
+    color: rgb(20, 29, 43);
+    padding: 20px;
+
 
 }
 
-.wrapper-blue {
-    display: flex;
-
-    width: 100%;
-    padding: 60px;
-    margin-left: 20px;
-    /* per fare il wrapper serve il margin ai lati? perché non lo prende alla navbar? */
-    margin-right: 20px;
-    /* perché si è creato un margiine bianco sul lato sinistro? */
+.blue {
     background-color: rgb(18, 29, 44);
     color: rgb(253, 253, 253);
-    justify-content: space-between;
+    padding: 20px;
+
 }
 
-.wrapper-grey {
-    display: flex;
-
-    width: 100%;
-    padding: 60px;
-    margin-left: 20px;
-    /*per fare il wrapper serve il margin ai lati? perché non lo prende nel nav?*/
-    margin-right: 20px;
+.grey {
     background-color: rgb(242, 245, 249);
     color: rgb(31, 41, 59);
+    padding: 20px;
+
 }
+
 
 h1,
 h2,
@@ -111,16 +101,12 @@ button {
     fill: rgb(55, 118, 226);
 }
 
-.container-navbar {
-    display: flex;
-    flex-direction: row;
-}
-
 
 .nav__menu {
     display: flex;
+    width: 100%;
     flex-direction: row;
-    align-items: center;
+    align-items: center;  
 }
 
 
@@ -132,14 +118,17 @@ button {
 }
 
 .nav__actions .nav__actions-item {
-    padding: 16px; /* meglio il paddng o lo spazio tra gli elementi "gap"?*/
+    padding: 16px;
+    /* meglio il paddng o lo spazio tra gli elementi "gap"?*/
+    white-space: nowrap; /* per non fare andare a capo il testo */
 
 }
 
 
 .nav__menu .nav__menu-item {
     padding: 16px;
-    white-space: nowrap; /* per non fare andare a capo il testo */
+    white-space: nowrap;
+    /* per non fare andare a capo il testo */
 }
 
 /*header*/
@@ -158,17 +147,18 @@ button {
 }
 
 .header__left-title {
-    min-width: 490px; /* per bloccare la larghezzza de box a minimo 500px, in % non riuscivo, 
-    e così non far spostare il testo prima dei 500px ma come si fa a far spostare gli elementi 
-    in verticale quando si restringe la finestra?*/
-
+    min-width: 490px;
+    /* Ma come si fa a rendere veramente responsive? a far spostare gli elementi 
+    in verticale quando si restringe la finestra? ho messo la larghezza minima 
+    per bloccare la larghezzza del box a minimo 500px, in % meglio? 
+    o cosa si dovrebbe usare per ottenere quell effetto?. */
 }
 
 .container-cards {
     display: flex;
     flex-direction: row;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* per impostare la funzione flex calc 100%/3 */
 }
 
 .main__card {
@@ -180,7 +170,8 @@ button {
     /*perché se aggiungo il padding alle main__card mi si spostano i bottoni dell'header?*/
 }
 
-.fa-solid.fa-circle-user { /* come si ingrandiscono le icone? direttamente dal sito? */
+.fa-solid.fa-circle-user {
+    /* come si ingrandiscono le icone? direttamente dal sito? */
     width: 50px;
 }
 
@@ -199,7 +190,8 @@ button {
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: start; /* e niente il logo e il titolo restano separati */
+    justify-content: start;
+    /* e niente il logo e il titolo restano separati */
 }
 
 
@@ -215,7 +207,11 @@ button {
 
 li {
     list-style: none;
-   
+
+}
+
+.cta {
+    display: flex;
 }
 
 .footer__menu-htw {
@@ -253,6 +249,3 @@ svg {
 #request {
     color: aliceblue;
 }
-
-
-
